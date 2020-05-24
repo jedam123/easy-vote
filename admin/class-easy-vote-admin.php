@@ -112,7 +112,7 @@ class Easy_Vote_Admin {
 	 */
 
 	public function add_plugin_admin_menu() {
-		add_menu_page( 'Easy Vote', 'Easy Vote', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page'), plugin_dir_url( __FILE__ ) . 'images/logo.png', 81 );
+		add_menu_page( 'Easy Vote', 'Easy Vote', 'manage_options', $this->plugin_name, array($this, 'display_plugin_setup_page'), 'dashicons-yes', 81 );
 	}
 
 	/**

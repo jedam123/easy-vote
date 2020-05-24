@@ -73,7 +73,7 @@ class Easy_Vote {
 		if ( defined( 'EASY_VOTE_PLUGIN_NAME_VERSION' ) ) {
 			$this->version = EASY_VOTE_PLUGIN_NAME_VERSION;
 		} else {
-			$this->version = '1.0';
+			$this->version = '1.0.0';
 		}
 		$this->plugin_name = 'easy-vote';
 		$this->plugin_url = EASY_VOTE_PLUGIN_URL;
