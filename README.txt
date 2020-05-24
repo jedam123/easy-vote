@@ -1,5 +1,6 @@
 === Easy Vote ===
 Plugin Name: Easy Vote
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NMN6TMWHGD2FU&source=url
 Contributors: madejskiproject
 Tags: Madejski, easy vote, vote, thumb up, thumb, simple vote
 Requires at least: 4.7
