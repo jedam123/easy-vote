@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap');
+
+
+$grey: #bdbdbd;
+$green: #258c25;
+$green-hover: #5ab15a;
+$red: #b50909;
+$red-hover: #f25151;
+
+.easy-vote {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-family: "Poppins";
+  font-weight: 300;
+
+  &.disable {
+    .easy-vote__up, .easy-vote__down {
+      .thumb {
+        background-color: $grey;
+        cursor: default;
+
+        &:hover {
+          background-color: $grey;
+        }
+      }
+    }
+
+    .easy-vote__up {
+      .thumb.active {
+        background-color: $green;
+
+        &:hover {
+          background-color: $green;
+        }
+      }
+    }
+
+    .easy-vote__down {
+      .thumb.active {
+        background-color: $red;
+
+        &:hover {
+          background-color: $red;
+        }
+      }
+    }
+  }
+
+  &__up {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+
+    .thumb {
+      background-color: $green;
+
+      &:hover {
+        background-color: $green-hover;
+      }
+    }
+  }
+
+  &__down {
+    display: flex;
+    justify-content: flex-start;
+
+    .thumb {
+      transform: rotate(180deg);
+      background-color: $red;
+
+      &:hover {
+        background-color: $red-hover;
+      }
+    }
+  }
+
+  &__count {
+      margin-left: 10px;
+      display: inline-block;
+      margin-top: auto;
+      margin-bottom: auto;
+  }
+
+  .thumb {
+    -webkit-mask-image: url("../images/thumb.svg");
+    -o-mask-image: url("../images/thumb.svg");
+    -moz-mask-image: url("../images/thumb.svg");
+    mask-image: url("../images/thumb.svg");
+    -webkit-mask-repeat: no-repeat;
+    -o-mask-repeat: no-repeat;
+    -moz-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    display: block;
+    cursor: pointer;
+    transition: all .3s;
+  }
+}
