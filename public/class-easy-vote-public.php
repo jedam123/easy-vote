@@ -90,21 +90,6 @@ class Easy_Vote_Public {
 	}
 
 	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/easy-vote.js', array( 'jquery' ), $this->version, false );
-
-	}
-
-	/**
 	 * Registers shortcodes at once
 	 *
 	 * @since    1.0.0

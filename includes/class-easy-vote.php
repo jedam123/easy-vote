@@ -147,9 +147,6 @@ class Easy_Vote {
 
 		$plugin_admin = new Easy_Vote_Admin( $this->get_plugin_name(), $this->get_version(), $this->plugin_url );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
 		// Add menu item
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu' );
 
@@ -169,7 +166,6 @@ class Easy_Vote {
 		$plugin_public = new Easy_Vote_Public( $this->get_plugin_name(), $this->get_version(), $this->plugin_url );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
 	}
