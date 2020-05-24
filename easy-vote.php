@@ -9,7 +9,7 @@
  * @wordpress-plugin
  * Plugin Name:       Easy Vote
  * Plugin URI:        https://github.com/jedam123/easy-vote
- * Description:
+ * Description:				Easy Vote allows you to save additional data. The fields snippet 1, snippet 2, snippet 3, snippet 4 or snippet 5 in admin panel reference to the class or ids you want to save. The reference works through jQuery. If we want to save the data that is in the container with the id 'test' in snippet x, just type #test and the data will be saved
  * Version:           1.0.0
  * Author:            Madejski-Project
  * Author URI:        https://github.com/jedam123
