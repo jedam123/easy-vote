@@ -72,17 +72,26 @@ class Easy_Vote_Admin {
 	public function options_update() {
 		if(isset($_POST['easy-vote-submit']) && current_user_can('manage_options')) {
 			global $wpdb;
-			$table = $wpdb->prefix . 'easy_vote';
+			ob_start();
+
+			$table = $wpdb->prefix . 'easy_vote_forms';
 			$where = [ 'id' => 1 ];
 			$data = array(
 				'id' => 1,
-				'create_date' => date("Y-m-d"),
-				'last_mod_date' => date("Y-m-d"),
-				'show_count' => sanitize_key($_POST['easy-vote-count']),
-				'class_name' => sanitize_text_field($_POST['easy-vote-class'])
+				'show_count' => sanitize_key($_POST['easy-vote-show_count']),
+				'class_name' => sanitize_text_field($_POST['easy-vote-class_name']),
+				'snippet_1' => sanitize_text_field($_POST['easy-vote-snippet_1']),
+				'snippet_2' => sanitize_text_field($_POST['easy-vote-snippet_2']),
+				'snippet_3' => sanitize_text_field($_POST['easy-vote-snippet_3']),
+				'snippet_4' => sanitize_text_field($_POST['easy-vote-snippet_4']),
+				'snippet_5' => sanitize_text_field($_POST['easy-vote-snippet_5']),
+				'last_mod_date' => date("Y-m-d")
 			);
 
 			$wpdb->update($table, $data, $where);
+
+			$output = ob_get_contents();
+			ob_end_clean();
 		}
 	}
 
