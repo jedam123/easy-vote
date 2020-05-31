@@ -9,8 +9,8 @@
  * @link       #
  * @since      1.0.0
  *
- * @package    Easy_Vote
- * @subpackage Easy_Vote/includes
+ * @package    EVMP
+ * @subpackage EVMP/includes
  */
 
 /**
@@ -20,11 +20,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Easy_Vote
- * @subpackage Easy_Vote/includes
+ * @package    EVMP
+ * @subpackage EVMP/includes
  * @author     Marcin Madejski
  */
-class Easy_Vote_i18n {
+class EVMP_i18n {
 
 
 	/**

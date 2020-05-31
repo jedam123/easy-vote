@@ -6,8 +6,8 @@
  * @link       #
  * @since      1.0.0
  *
- * @package    Easy_Vote
- * @subpackage Easy_Vote/includes
+ * @package    EVMP
+ * @subpackage EVMP/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Easy_Vote
- * @subpackage Easy_Vote/includes
+ * @package    EVMP
+ * @subpackage EVMP/includes
  * @author     Marcin Madejski
  */
-class Easy_Vote_Loader {
+class EVMP_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

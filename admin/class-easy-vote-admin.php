@@ -6,8 +6,8 @@
  * @link       #
  * @since      1.0.0
  *
- * @package    Easy_Vote
- * @subpackage Easy_Vote/admin
+ * @package    EVMP
+ * @subpackage EVMP/admin
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the admin-specific stylesheet and JavaScript.
  *
- * @package    Easy_Vote
- * @subpackage Easy_Vote/admin
+ * @package    EVMP
+ * @subpackage EVMP/admin
  * @author     Marcin Madejski
  */
-class Easy_Vote_Admin {
+class EVMP_Admin {
 
 	/**
 	 * The ID of this plugin.

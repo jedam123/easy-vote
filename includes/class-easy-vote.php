@@ -9,8 +9,8 @@
  * @link       #
  * @since      1.0.0
  *
- * @package    Easy_Vote
- * @subpackage Easy_Vote/includes
+ * @package    EVMP
+ * @subpackage EVMP/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Easy_Vote
- * @subpackage Easy_Vote/includes
+ * @package    EVMP
+ * @subpackage EVMP/includes
  * @author     Marcin Madejski
  */
-class Easy_Vote {
+class EVMP {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -35,7 +35,7 @@ class Easy_Vote {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Easy_Vote_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      EVMP_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -70,13 +70,13 @@ class Easy_Vote {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'EASY_VOTE_PLUGIN_NAME_VERSION' ) ) {
-			$this->version = EASY_VOTE_PLUGIN_NAME_VERSION;
+		if ( defined( 'EVMP_PLUGIN_NAME_VERSION' ) ) {
+			$this->version = EVMP_PLUGIN_NAME_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
 		$this->plugin_name = 'easy-vote';
-		$this->plugin_url = EASY_VOTE_PLUGIN_URL;
+		$this->plugin_url = EVMP_PLUGIN_URL;
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -114,7 +114,7 @@ class Easy_Vote {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-easy-vote-public.php';
 
-		$this->loader = new Easy_Vote_Loader();
+		$this->loader = new EVMP_Loader();
 
 	}
 
@@ -122,7 +122,7 @@ class Easy_Vote {
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Easy_Vote_i18n class in order to set the domain and to register the hook
+	 * Uses the EVMP_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -130,7 +130,7 @@ class Easy_Vote {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Easy_Vote_i18n();
+		$plugin_i18n = new EVMP_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -145,7 +145,7 @@ class Easy_Vote {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Easy_Vote_Admin( $this->get_plugin_name(), $this->get_version(), $this->plugin_url );
+		$plugin_admin = new EVMP_Admin( $this->get_plugin_name(), $this->get_version(), $this->plugin_url );
 
 		// Add menu item
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu' );
@@ -163,7 +163,7 @@ class Easy_Vote {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Easy_Vote_Public( $this->get_plugin_name(), $this->get_version(), $this->plugin_url );
+		$plugin_public = new EVMP_Public( $this->get_plugin_name(), $this->get_version(), $this->plugin_url );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 
@@ -194,7 +194,7 @@ class Easy_Vote {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Easy_Vote_Loader    Orchestrates the hooks of the plugin.
+	 * @return    EVMP_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;
