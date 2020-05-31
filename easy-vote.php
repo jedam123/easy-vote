@@ -4,7 +4,7 @@
  *
  * @link              #
  * @since             1.0.0
- * @package           Easy_Vote
+ * @package           EVMP
  *
  * @wordpress-plugin
  * Plugin Name:       Easy Vote
@@ -24,15 +24,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EASY_VOTE_PLUGIN_NAME_VERSION', '1.0.0' );
-define( 'EASY_VOTE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'EVMP_PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'EVMP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 // The code that runs during plugin activation
-function activate_easy_vote() {
+function evmp_activate() {
 	global $wpdb;
 
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-	$installed_version = get_option('easy_vote_db_version');
+	$installed_version = get_option('evmp_db_version');
 
 	$sql = "CREATE TABLE IF NOT EXISTS " . $wpdb->prefix . "easy_vote_forms (
 					id INT NOT NULL auto_increment,
@@ -83,17 +83,17 @@ function activate_easy_vote() {
 		$wpdb->insert($table, $data);
 	}
 
-	update_option('easy_vote_db_version', EASY_VOTE_PLUGIN_NAME_VERSION);
+	update_option('evmp_db_version', EVMP_PLUGIN_NAME_VERSION);
 }
 
 
 // The code that runs during plugin deactivation
-function deactivate_easy_vote() {
+function evmp_deactivate() {
 
 }
 
-register_activation_hook( __FILE__, 'activate_easy_vote' );
-register_deactivation_hook( __FILE__, 'deactivate_easy_vote' );
+register_activation_hook( __FILE__, 'evmp_activate' );
+register_deactivation_hook( __FILE__, 'evmp_deactivate' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -101,7 +101,7 @@ register_deactivation_hook( __FILE__, 'deactivate_easy_vote' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-easy-vote.php';
 
-function getIpAddress() {
+function evmp_getIpAddress() {
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         $ip = $_SERVER['HTTP_CLIENT_IP'];
     } else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -113,7 +113,7 @@ function getIpAddress() {
     return $ip;
 }
 
-function addVote() {
+function evmp_addVote() {
 	global $wpdb;
 
 	$snippet_1 = '';
@@ -145,7 +145,7 @@ function addVote() {
 	$table = $wpdb->prefix . 'easy_vote_ranking';
 	$data = array(
 				'id' => '',
-				'ip_address' => sanitize_text_field(getIpAddress()),
+				'ip_address' => sanitize_text_field(evmp_getIpAddress()),
 				'timestamp' => date("Y-m-d H:i:s"),
 				'post_id' => intval($_POST['postId']),
 				'vote' => rest_sanitize_boolean($_POST['vote']),
@@ -160,8 +160,8 @@ function addVote() {
 	$result = $wpdb->insert($table, $data);
 }
 
-add_action('wp_ajax_addVote', 'addVote');
-add_action('wp_ajax_nopriv_addVote', 'addVote');
+add_action('wp_ajax_evmp_addVote', 'evmp_addVote');
+add_action('wp_ajax_nopriv_evmp_addVote', 'evmp_addVote');
 
 /**
  * Begins execution of the plugin.
@@ -172,10 +172,10 @@ add_action('wp_ajax_nopriv_addVote', 'addVote');
  *
  * @since    1.0.0
  */
-function run_easy_vote() {
+function evmp_run() {
 
-	$plugin = new Easy_Vote();
+	$plugin = new EVMP();
 	$plugin->run();
 
 }
-run_easy_vote();
+evmp_run();

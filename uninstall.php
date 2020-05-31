@@ -22,7 +22,7 @@
  * @link       #
  * @since      1.0.0
  *
- * @package    Easy_Vote
+ * @package    EVMP
  */
 
 // If uninstall not called from WordPress, then exit.

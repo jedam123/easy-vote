@@ -4,8 +4,8 @@
  * @link       #
  * @since      1.0.0
  * @author     Marcin Madejski
- * @package    Easy_Vote
- * @subpackage Easy_Vote/admin/partials
+ * @package    EVMP
+ * @subpackage EVMP/admin/partials
  */
 global $wpdb;
 
@@ -16,7 +16,7 @@ $formData = $wpdb->get_row( "SELECT * FROM " . $wpdb->prefix . "easy_vote_forms"
 
 <div class="easy-vote">
     <?php
-      define('Easy_Vote_Admin', TRUE);
+      define('EVMP_Admin', TRUE);
     ?>
     <div class="wrap">
       <h1>Easy Vote</h1>

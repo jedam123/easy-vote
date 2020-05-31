@@ -5,7 +5,7 @@
  * @since      1.0.0
  */
 
-if (!defined('easy-vote_shortcode')) {
+if (!defined('evmp_shortcode')) {
     die('Direct access not permitted');
 }
 global $wpdb;
@@ -35,7 +35,7 @@ if (!empty($dataRanking)) {
         $negativeVote++;
       }
 
-      if ($dataRanking[$i]->ip_address == getIpAddress()) {
+      if ($dataRanking[$i]->ip_address == evmp_getIpAddress()) {
         $ipIsOk = false;
 
         if ($dataRanking[$i]->vote == 1) {
@@ -70,17 +70,16 @@ $formId = 'easy-vote-form-' . uniqid();
 
   <script>
   <?php if ($ipIsOk) : ?>
-  var form = jQuery('form[name="<?php echo $formId ?>"]');
 
-  jQuery(form).find(".easy-vote__up").find('.thumb').on('click touch', function (e) {
-    if (!jQuery(form).hasClass('disable') && window.localStorage.getItem('voteData-<?php echo get_the_ID(); ?>') == null) {
+  jQuery('form[name="<?php echo $formId ?>"]').find(".easy-vote__up").find('.thumb').on('click touch', function (e) {
+    if (!jQuery('form[name="<?php echo $formId ?>"]').hasClass('disable') && window.localStorage.getItem('voteData-<?php echo get_the_ID(); ?>') == null) {
       var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 
       jQuery.ajax({
       	type: 'post',
         url: ajaxurl,
         data: {
-        	action : 'addVote',
+        	action : 'evmp_addVote',
           'vote': true,
           'postId': <?php echo get_the_ID(); ?>,
           <?php echo trim($snippet_1) != '' ? '\'snippet_1\': jQuery("' . $snippet_1 . '").text(),' : ''; ?>
@@ -88,14 +87,14 @@ $formId = 'easy-vote-form-' . uniqid();
           <?php echo trim($snippet_3) != '' ? '\'snippet_3\': jQuery("' . $snippet_3 . '").text(),' : ''; ?>
           <?php echo trim($snippet_4) != '' ? '\'snippet_4\': jQuery("' . $snippet_4 . '").text(),' : ''; ?>
           <?php echo trim($snippet_5) != '' ? '\'snippet_5\': jQuery("' . $snippet_5 . '").text(),' : ''; ?>
-          'easy-vote': jQuery(form).find('input[name="easy-vote"]').val()
+          'easy-vote': jQuery('form[name="<?php echo $formId ?>"]').find('input[name="easy-vote"]').val()
         },
 
         success: function() {
-          jQuery(form).addClass('disable');
+          jQuery('form[name="<?php echo $formId ?>"]').addClass('disable');
 
           <?php if ($showCounter == 1) : ?>
-            var counterElement = jQuery(form).find(".easy-vote__up").find('.easy-vote__count');
+            var counterElement = jQuery('form[name="<?php echo $formId ?>"]').find(".easy-vote__up").find('.easy-vote__count');
             var value = +jQuery(counterElement).html();
             jQuery(counterElement).text(value + 1);
           <?php endif; ?>
@@ -108,14 +107,14 @@ $formId = 'easy-vote-form-' . uniqid();
   });
 
   jQuery('form[name="<?php echo $formId ?>"]').find(".easy-vote__down").find('.thumb').on('click touch', function (e) {
-    if (!jQuery(form).hasClass('disable') && window.localStorage.getItem('voteData-<?php echo get_the_ID(); ?>') == null) {
+    if (!jQuery('form[name="<?php echo $formId ?>"]').hasClass('disable') && window.localStorage.getItem('voteData-<?php echo get_the_ID(); ?>') == null) {
     	var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 
       jQuery.ajax({
       	type: 'post',
         url: ajaxurl,
         data: {
-        	action : 'addVote',
+        	action : 'evmp_addVote',
           'vote': false,
           'postId': <?php echo get_the_ID(); ?>,
           <?php echo trim($snippet_1) != '' ? '\'snippet_1\': jQuery("' . $snippet_1 . '").text(),' : ''; ?>
@@ -123,14 +122,14 @@ $formId = 'easy-vote-form-' . uniqid();
           <?php echo trim($snippet_3) != '' ? '\'snippet_3\': jQuery("' . $snippet_3 . '").text(),' : ''; ?>
           <?php echo trim($snippet_4) != '' ? '\'snippet_4\': jQuery("' . $snippet_4 . '").text(),' : ''; ?>
           <?php echo trim($snippet_5) != '' ? '\'snippet_5\': jQuery("' . $snippet_5 . '").text(),' : ''; ?>
-          'easy-vote': jQuery(form).find('input[name="easy-vote"]').val()
+          'easy-vote': jQuery('form[name="<?php echo $formId ?>"]').find('input[name="easy-vote"]').val()
         },
 
     		success: function () {
-          jQuery(form).addClass('disable');
+          jQuery('form[name="<?php echo $formId ?>"]').addClass('disable');
 
           <?php if ($showCounter == 1) : ?>
-            var counterElement = jQuery(form).find(".easy-vote__down").find('.easy-vote__count');
+            var counterElement = jQuery('form[name="<?php echo $formId ?>"]').find(".easy-vote__down").find('.easy-vote__count');
             var value = +jQuery(counterElement).html();
             jQuery(counterElement).text(value + 1);
           <?php endif; ?>

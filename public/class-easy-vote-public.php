@@ -6,8 +6,8 @@
  * @link       #
  * @since      1.0.0
  *
- * @package    Easy_Vote
- * @subpackage Easy_Vote/public
+ * @package    EVMP
+ * @subpackage EVMP/public
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Easy_Vote
- * @subpackage Easy_Vote/public
+ * @package    EVMP
+ * @subpackage EVMP/public
  * @author     Marcin Madejski
  */
-class Easy_Vote_Public {
+class EVMP_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -96,7 +96,7 @@ class Easy_Vote_Public {
 	 */
 
 	public function register_shortcodes() {
-		add_shortcode( 'easy_vote', array( $this, 'shortocde_easy_vote' ) );
+		add_shortcode( 'easy_vote', array( $this, 'evmp_shortocde' ) );
 	}
 
 	/**
@@ -104,8 +104,8 @@ class Easy_Vote_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function shortocde_easy_vote( $atts = array() ) {
-		define('easy-vote_shortcode', TRUE);
+	public function evmp_shortocde( $atts = array() ) {
+		define('evmp_shortcode', TRUE);
 		$voteId = abs(crc32(uniqid()));
 		$atts = shortcode_atts( array(
 			'form_name' => $this->plugin_name . '-' . $voteId,
