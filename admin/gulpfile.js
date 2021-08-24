@@ -4,7 +4,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var minify = require('gulp-minify');
 
 gulp.task('sass', function () {
-  return gulp.src('dev-css/wfw-admin.scss')
+  return gulp.src('dev-css/easy-vote.scss')
   .pipe(sourcemaps.init())
   .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
   .pipe(sourcemaps.write('.'))
