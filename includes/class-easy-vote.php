@@ -144,7 +144,6 @@ class EVMP {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
 		$plugin_admin = new EVMP_Admin( $this->get_plugin_name(), $this->get_version(), $this->plugin_url );
 
 		// Add menu item
@@ -162,11 +161,9 @@ class EVMP {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-
 		$plugin_public = new EVMP_Public( $this->get_plugin_name(), $this->get_version(), $this->plugin_url );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-
 		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
 	}
 
