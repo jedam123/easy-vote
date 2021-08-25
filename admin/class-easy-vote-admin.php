@@ -57,11 +57,9 @@ class EVMP_Admin {
 	 * @param      string    $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version, $url ) {
-
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 		$this->url = $url;
-
 	}
 
 	/**

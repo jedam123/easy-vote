@@ -10,7 +10,7 @@
  * Plugin Name:       Easy Vote
  * Plugin URI:        https://github.com/jedam123/easy-vote
  * Description:				Easy Vote allows you to save additional data. The fields snippet 1, snippet 2, snippet 3, snippet 4 or snippet 5 in admin panel reference to the class or ids you want to save. The reference works through jQuery. If we want to save the data that is in the container with the id 'test' in snippet x, just type #test and the data will be saved
- * Version:           1.1
+ * Version:           2.0.0
  * Author:            Madejski-Project
  * Author URI:        https://github.com/jedam123
  * License:           GPL-2.0+
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EVMP_PLUGIN_NAME_VERSION', '1.1' );
+define( 'EVMP_PLUGIN_NAME_VERSION', '2.0.0' );
 define( 'EVMP_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 // The code that runs during plugin activation
