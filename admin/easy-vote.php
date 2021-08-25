@@ -2,7 +2,7 @@
 
 /**
  * @link       #
- * @since      1.0.0
+ * @since      2.0.0
  * @author     Marcin Madejski
  * @package    EVMP
  * @subpackage EVMP/admin/partials
@@ -20,6 +20,7 @@
     <div class="evmp-admin__logo"></div>
     <div class="evmp-admin__tabs">
       <a href="?page=easy-vote"><?php _e('Settings', $this->plugin_name); ?></a>
+      <a href="?page=easy-vote&tab=stats"><?php _e('Stats', $this->plugin_name); ?></a>
       <a href="?page=easy-vote&tab=votes"><?php _e('Votes', $this->plugin_name); ?></a>
       <a href="?page=easy-vote&tab=help"><?php _e('Help', $this->plugin_name); ?></a>
     </div>
@@ -27,6 +28,10 @@
   <div class="evmp-admin__content">
   <?php
     switch ($tab) {
+      case 'stats':
+        include_once 'partials/stats.php';
+        break;
+
       case 'votes':
         include_once 'partials/votes.php';
         break;

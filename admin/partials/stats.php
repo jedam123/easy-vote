@@ -11,7 +11,7 @@
   $rankingData = $wpdb->get_results("SELECT * FROM " . $wpdb->prefix . "easy_vote_ranking");
 ?>
 
-<div class="evmp-votes">
+<div class="evmp-stats">
   <?php
     define('EVMP_Admin', TRUE);
 
